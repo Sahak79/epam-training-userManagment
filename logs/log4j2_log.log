@@ -1,0 +1,2 @@
+2016-01-20 17:01:40.686 [http-nio-8080-exec-7] ERROR com.epam.controller.JobsController - This is error log.
+2016-04-20 17:04:00.710 [http-nio-8080-exec-5] ERROR com.epam.controller.JobsController - This is error log.

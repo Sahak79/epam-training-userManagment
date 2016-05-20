@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Jobs</title>
+        <link th:href="@{/webjars/bootstrap/3.3.6/css/bootstrap.min.css}" href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet" media="screen"/>
+        <link rel="stylesheet" href="css/main.css" />
+        <script src="http://cdn.jsdelivr.net/webjars/jquery/2.2.0/jquery.min.js" th:src="@{/webjars/jquery/2.2.0/jquery.min.js}"></script>
+    </head>
+    <body>
+    
+		<div th:replace="fragments/header :: header"></div>
+		
+        <div class="container">
+        
+			<table class="table table-hover space-from-top">
+				<thead>
+					<tr>
+						<th>Title</th>
+						<th>Description</th>
+						<th>Poster</th>
+						<th>Category</th>
+						<th>Date start</th>
+						<th>Date end</th>
+						<th>Email</th>
+						<th>Country</th>
+						<th>City</th>
+						<th>Salary</th>
+						<th>Applicants</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="job : ${jobs}">
+						<td th:text="${job.title}">Title</td>	
+						<td th:text="${job.description}">Description</td>
+						<td th:text="${job.owner.firstName}">Poster</td>
+						<td th:text="${job.category.name}">Category</td>
+						<td th:text="${job.date_start}">Date start</td>
+						<td th:text="${job.date_end}">Date end</td>
+						<td th:text="${job.emails}">Email</td>
+						<td th:text="${job.country.name}">Country</td>
+						<td th:text="${job.city.name}">City</td>
+						<td th:text="${job.salary.sum}">Salary</td>
+						<td>
+							<p th:each="applicant : ${job.applicants}" th:text="${applicant.firstName}">
+								${applicant.firstName}
+							</p>
+						</td>
+					</tr> 
+				</tbody>
+			</table>
+        	
+        </div><!-- /container -->
+        
+
+    </body>
+</html>
